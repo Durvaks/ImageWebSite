@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
+import Lightbox from "./lightbox/Lightbox"
 
 function App() {
   const [urlImages, setUrlImages] = useState([])
   const [images, setImages] = useState([])
+  const [lightboxUrl, setLightboxUrl] = useState('')
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   useEffect(() => {
     setUrlImages([
@@ -21,13 +24,21 @@ function App() {
     ])
   }, [])
 
+  const imageHandleClick = (url) => {
+    setLightboxOpen(true);
+    setLightboxUrl(url);
+  } 
+
   useEffect(() => {
     imageCollection();
   }, [urlImages])
 
   const imageCollection = () => {
     const newImages = urlImages.map((id) => {
-      return <div className=" w-[20vw] min-w-[150px] h-[20vw] min-h-[150px] rounded overflow-hidden flex mx-auto relative cursor-pointer opacity-80 hover:opacity-100 hover:border-opacity-100 border-opacity-40 border-black border-4">
+      return <div className=" w-[20vw] min-w-[150px] h-[20vw] min-h-[150px] rounded overflow-hidden flex mx-auto relative cursor-pointer opacity-80 hover:opacity-100 hover:border-opacity-100 border-opacity-40 border-black border-4"
+        onClick={()=>{imageHandleClick(`https://docs.google.com/uc?id=${id}`)}}
+        key={id}
+      >
         <img
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover min-h-full w-full"
           src={`https://docs.google.com/uc?id=${id}`}
@@ -47,15 +58,15 @@ function App() {
             <h2 className=" text-sm text-yellow-500">AI-Generated</h2>
           </header>
         </div>
-        <section className=" mt-10 md:ml-[20%] md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-4xl flex flex-wrap">
-          <div className="md:min-w-[230px] inline-block max-w-[200px] md:w-[250px] rounded-full overflow-hidden mr-5 border-opacity-40 border-black border-4">
+        <section className=" mt-10 md:m-auto md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-6xl flex flex-wrap">
+          <div className="md:min-w-[230px] inline-block max-w-[200px] md:w-[250px] rounded-full overflow-hidden mr-10 border-opacity-40 border-black border-4">
             <img
               className="min-w-full scale-110 opacity-70"
               src="https://docs.google.com/uc?id=14YyXcaCaKe2qazsjTOSHXAp2yauHDGqd"
               alt="Perfil Image"
             />
           </div>
-          <p className=" max-w-[600px] mt-10 italic leading-8 tracking-[0.08em] text-slate-300">
+          <p className=" max-w-[800px] md:leading-[3rem] mt-10 italic leading-8 tracking-[0.08em] text-slate-300">
             Each artwork is the result of a collaboration between my creative vision and the powerful mind of AI, resulting in visually stunning compositions and surprising concepts.
             Get ready to dive into a world of vibrant colors, intriguing shapes, and mesmerizing textures.
             Join me in this data-powered artistic exploration and discover the wonders that artificial intelligence can create.
@@ -64,8 +75,10 @@ function App() {
         </section>
       </div>
       <section className="min-h-screen pt-10 pb-10 p-5 flex justify-between flex-wrap gap-2 bg-indigo-950 bg-opacity-70">
+        {lightboxOpen ? <Lightbox url={lightboxUrl} desactive={()=>{setLightboxOpen(false)}}/> : ''}
         {images}
       </section>
+      
     </div>
   )
 }
