@@ -39,16 +39,16 @@ function App() {
   }
 
   return (
-    <div className="bg-fixed bg-[url('https://docs.google.com/uc?id=12eaINVQHEQ-VwGQJhXsyoAL5vw-POySP')] min-w-[600px] bg-cover">
-      <div className="min-h-screen border-b bg-black bg-opacity-60">
+    <div className="w-screen overflow-x-hidden bg-fixed bg-[url('https://docs.google.com/uc?id=12eaINVQHEQ-VwGQJhXsyoAL5vw-POySP')] bg-cover">
+      <div className="h-screen border-b bg-black bg-opacity-60 p-5">
         <div>
-          <header className="pl-5 pt-5 tracking-[0.24em] font-bold text-[1.8rem] text-slate-100 leading-[4rem] md:text-[2rem] md:text-center">
+          <header className="pt-5 tracking-[0.24em] font-bold text-[1.8rem] text-slate-100 leading-[4rem] md:text-[2rem] md:text-center">
             <h1 className=" text-cyan-300">Visions Beyond Imagination</h1>
             <h2 className=" text-sm text-yellow-500">AI-Generated</h2>
           </header>
         </div>
-        <section className="m-3 mt-10 md:ml-[20%] md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-4xl flex flex-wrap">
-          <div className="md:min-w-[250px] inline-block max-w-[250px] md:w-[250px] rounded-full overflow-hidden mr-5 border-opacity-40 border-black border-4">
+        <section className=" mt-10 md:ml-[20%] md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-4xl flex flex-wrap">
+          <div className="md:min-w-[230px] inline-block max-w-[200px] md:w-[250px] rounded-full overflow-hidden mr-5 border-opacity-40 border-black border-4">
             <img
               className="min-w-full scale-110 opacity-70"
               src="https://docs.google.com/uc?id=14YyXcaCaKe2qazsjTOSHXAp2yauHDGqd"
@@ -56,16 +56,14 @@ function App() {
             />
           </div>
           <p className=" max-w-[600px] mt-10 italic leading-8 tracking-[0.08em] text-slate-300">
-            Welcome to my artistic universe driven by artificial intelligence!
             Each artwork is the result of a collaboration between my creative vision and the powerful mind of AI, resulting in visually stunning compositions and surprising concepts.
             Get ready to dive into a world of vibrant colors, intriguing shapes, and mesmerizing textures.
             Join me in this data-powered artistic exploration and discover the wonders that artificial intelligence can create.
             Welcome to the future of artistic expression!
           </p>
-
         </section>
       </div>
-      <section className="min-h-screen pt-10 pb-10 p-5 flex justify-between flex-wrap gap-2 min-w-[600px] bg-indigo-950 bg-opacity-70">
+      <section className="min-h-screen pt-10 pb-10 p-5 flex justify-between flex-wrap gap-2 bg-indigo-950 bg-opacity-70">
         {images}
       </section>
     </div>
