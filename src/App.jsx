@@ -25,51 +25,37 @@ function App() {
     imageCollection();
   }, [urlImages])
 
-  const ligthbox = (imageLink) => {
-    const dom = <div className=" z-10 fixed top-0 left-0 w-full h-full bg-slate-800 opacity-50 flex items-center justify-center"
-      onClick={setImageLightbox('')}
-    >
-            <img
-              className=" opacity-100"
-              src={imageLink}
-              alt="Perfil Image"
-            />
-    </div>
-    setImageLightbox(dom)
-  }
-
   const imageCollection = () => {
     const newImages = urlImages.map((id) => {
-      return <div className=" w-[20vw] min-w-[150px] h-[20vw] min-h-[150px] rounded overflow-hidden flex mx-auto relative cursor-pointer hover:border"
-        
-      >
+      return <div className=" w-[20vw] min-w-[150px] h-[20vw] min-h-[150px] rounded overflow-hidden flex mx-auto relative cursor-pointer opacity-80 hover:opacity-100 hover:border-opacity-100 border-opacity-40 border-black border-4">
         <img
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover min-h-full w-full"
           src={`https://docs.google.com/uc?id=${id}`}
-          alt="Perfil Image" />
+          alt="Perfil Image" 
+        />
       </div>
     })
     setImages(newImages)
   }
 
   return (
-    <div className="bg-fixed bg-[url('https://docs.google.com/uc?id=12_e_t7Efe8xftMByyCkiSDyVSNI8cWPH')] min-w-[600px] bg-cover bg-opacity-30">
+    <div className="bg-fixed bg-[url('https://docs.google.com/uc?id=12eaINVQHEQ-VwGQJhXsyoAL5vw-POySP')] min-w-[600px] bg-cover">
       <div className="min-h-screen border-b bg-black bg-opacity-60">
         <div>
           <header className="pl-5 pt-5 tracking-[0.24em] font-bold text-[1.8rem] text-slate-100 leading-[4rem] md:text-[2rem] md:text-center">
-            <h1>Visions Beyond Imagination</h1>
-            <h2>AI-Generated</h2>
+            <h1 className=" text-cyan-300">Visions Beyond Imagination</h1>
+            <h2 className=" text-sm text-yellow-500">AI-Generated</h2>
           </header>
         </div>
-        <section className="m-3 mt-3 md:ml-[20%] md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-4xl flex flex-wrap">
-          <div className="md:min-w-[250px] inline-block max-w-[250px] md:w-[250px] rounded-md border overflow-hidden mr-5">
+        <section className="m-3 mt-10 md:ml-[20%] md:mb-[15%] md:mt-[10%] md:text-[1.5rem] md:max-w-4xl flex flex-wrap">
+          <div className="md:min-w-[250px] inline-block max-w-[250px] md:w-[250px] rounded-full overflow-hidden mr-5 border-opacity-40 border-black border-4">
             <img
-              className="min-w-full scale-110"
+              className="min-w-full scale-110 opacity-70"
               src="https://docs.google.com/uc?id=14YyXcaCaKe2qazsjTOSHXAp2yauHDGqd"
               alt="Perfil Image"
             />
           </div>
-          <p className=" max-w-[600px] mt-5 italic leading-8 tracking-[0.08em] text-slate-400">
+          <p className=" max-w-[600px] mt-10 italic leading-8 tracking-[0.08em] text-slate-300">
             Welcome to my artistic universe driven by artificial intelligence!
             Each artwork is the result of a collaboration between my creative vision and the powerful mind of AI, resulting in visually stunning compositions and surprising concepts.
             Get ready to dive into a world of vibrant colors, intriguing shapes, and mesmerizing textures.
