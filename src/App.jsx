@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="w-screen overflow-x-hidden bg-fixed bg-[url('https://docs.google.com/uc?id=12eaINVQHEQ-VwGQJhXsyoAL5vw-POySP')] bg-cover">
-      <div className="h-screen border-b bg-black bg-opacity-60 p-5">
+      <div className="border-b bg-black bg-opacity-60 p-5">
         <div>
           <header className="pt-5 tracking-[0.24em] font-bold text-[1.8rem] text-slate-100 leading-[4rem] md:text-[2rem] md:text-center">
             <h1 className=" text-cyan-300">Visions Beyond Imagination</h1>
